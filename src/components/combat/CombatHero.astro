@@ -200,13 +200,56 @@ const { boxer1, boxer2, boxer1Hero, boxer2Hero } = Astro.props
   }
 
   @media (max-width: 639px) {
+    /* Figuras más grandes: cabeza y torso protagonistas, piernas bajo el mask */
     .combat-hero-boxer {
-      width: 52%;
-      height: 70%;
+      width: 70%;
+      height: 100%;
+      overflow: hidden;
     }
 
+    .boxer-a {
+      left: -12%;
+    }
+
+    .boxer-b {
+      right: -12%;
+    }
+
+    .boxer-img {
+      max-height: none;
+      transform: scale(1.45); /* TUNE: tamaño de las figuras */
+      transform-origin: bottom center;
+    }
+
+    /* Logo + nombres + VS bajados a la cintura, sin tapar las caras */
     .combat-hero-content {
-      padding-bottom: 3.5rem;
+      height: 100svh;
+      justify-content: flex-end;
+      padding-bottom: 14svh; /* TUNE: altura del bloque de texto (cintura) */
+      gap: 0.25rem;
+    }
+
+    .boxer-default-logo {
+      width: 42vw; /* logo más compacto en móvil */
+    }
+
+    .vs-glyph {
+      font-size: clamp(2.2rem, 12vw, 3.5rem); /* VS más pequeño */
+    }
+
+    /* Legibilidad del título superpuesto sobre las figuras */
+    .combat-title {
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.5rem;
+      background: radial-gradient(
+        ellipse 120% 100% at 50% 50%,
+        rgba(5, 8, 22, 0.62),
+        transparent 75%
+      );
+    }
+
+    .scroll-hint {
+      margin-top: 1.25rem;
     }
   }
 
